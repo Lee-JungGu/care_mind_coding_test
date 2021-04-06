@@ -31,14 +31,14 @@ app.post("/api/users/login", (req, res) => {
       });
     }
 
-    generateToken(user._id, user.token);
-
-    res.json({
-      loginSuccess: true,
-      userId: user._id,
-      userToken: user.token,
-      userName: user.name,
-      userImage: user.image,
+    generateToken(user._id, user.token, (userToken) => {
+      res.json({
+        loginSuccess: true,
+        userId: user._id,
+        userToken: userToken,
+        userName: user.name,
+        userImage: user.image,
+      });
     });
   });
 });

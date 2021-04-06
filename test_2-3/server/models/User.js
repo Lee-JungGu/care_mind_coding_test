@@ -24,10 +24,11 @@ const encryptPassword = (userPassword, callback) => {
   });
 };
 
-const generateToken = (userId, userToken) => {
+const generateToken = (userId, userToken, callback) => {
   const token = jwt.sign(userId, "secretToken");
 
   userToken = token;
+  callback(userToken);
 };
 
 const comparePassword = (plainPassword, userPassword, callback) => {
