@@ -35,15 +35,16 @@ export default function LoginPage(props) {
       image: "./images/avatar.png",
     };
 
-    if (password === confirmPassword) {
-      dispatch(registerUser(body)).then((reponse) => {
-        if (!reponse.payload.registerSuccess) {
-          console.log(reponse);
-          return alert(reponse.payload.message);
-        }
-        props.history.push("/");
-      });
+    if (password !== confirmPassword) {
+      return alert("비밀번호가 일치하지 않습니다.");
     }
+
+    dispatch(registerUser(body)).then((reponse) => {
+      if (!reponse.payload.registerSuccess) {
+        return alert(reponse.payload.message);
+      }
+      props.history.push("/");
+    });
   };
 
   useEffect(() => {

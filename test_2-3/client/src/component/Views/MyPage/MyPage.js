@@ -68,6 +68,7 @@ const LogoutBtn = styled.button`
   width: 100px;
   height: 40px;
   margin-top: 12px;
+  cursor: pointer;
 `;
 
 export default connect(mapStateToProps)(MyPage);
