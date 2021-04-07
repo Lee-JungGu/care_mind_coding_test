@@ -6,7 +6,8 @@ import { logoutUser } from "../../../_actions/user_action";
 function MyPage({ state, history }) {
   const dispatch = useDispatch();
 
-  const onClickHandler = () => {
+  //로그아웃
+  const onLogoutHandler = () => {
     localStorage.removeItem("JWT_KEY");
     dispatch(logoutUser());
     history.push("/");
@@ -28,7 +29,7 @@ function MyPage({ state, history }) {
         <Title>환영합니다 {userName}님.</Title>
         <Image src={userImage} alt="아바타이미지" />
         <Name>{userName}</Name>
-        <LogoutBtn onClick={onClickHandler}>Logout</LogoutBtn>
+        <LogoutBtn onClick={onLogoutHandler}>Logout</LogoutBtn>
       </Wrapper>
     );
   } else {

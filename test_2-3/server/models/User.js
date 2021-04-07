@@ -13,6 +13,7 @@ const User = [
   },
 ];
 
+//비밀번호 암호화
 const encryptPassword = (userPassword, callback) => {
   bcrypt.genSalt(saltRounds, (err, salt) => {
     if (err) return err;
@@ -24,6 +25,7 @@ const encryptPassword = (userPassword, callback) => {
   });
 };
 
+//토큰 생성
 const generateToken = (userId, userToken, callback) => {
   const token = jwt.sign(userId, "secretToken");
 
@@ -31,6 +33,7 @@ const generateToken = (userId, userToken, callback) => {
   callback(userToken);
 };
 
+//암호화된 비밀번호 비교 확인
 const comparePassword = (plainPassword, userPassword, callback) => {
   bcrypt.compare(plainPassword, userPassword, (err, isMatch) => {
     if (err) return callback(err);

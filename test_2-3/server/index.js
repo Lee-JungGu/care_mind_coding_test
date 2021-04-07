@@ -13,6 +13,7 @@ app.use(express.json());
 //application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }));
 
+//로그인
 app.post("/api/users/login", (req, res) => {
   const user = User.find((user) => user.email === req.body.email);
 
@@ -43,6 +44,7 @@ app.post("/api/users/login", (req, res) => {
   });
 });
 
+//회원가입
 app.post("/api/users/register", (req, res) => {
   const user = User.find((user) => user.email === req.body.email);
 
