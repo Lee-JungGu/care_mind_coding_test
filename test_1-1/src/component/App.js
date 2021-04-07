@@ -4,10 +4,10 @@ import Content from "./Views/Content/Content";
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
       <Content />
-    </>
+    </div>
   );
 }
 

@@ -11,6 +11,7 @@ export default function ChangeFontSizeButtons() {
     if (checkBtnData === "plus") {
       return setSize((size) => size + 1);
     }
+    //작아질 수 있는 폰트 사이즈의 한계가 있으므로 조건 추가
     return size > MIN_SIZE && setSize((size) => size - 1);
   };
 
